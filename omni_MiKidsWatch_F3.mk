@@ -25,7 +25,7 @@ $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device
 PRODUCT_DEVICE := MiKidsWatch_F3
-PRODUCT_NAME := full_MiKidsWatch_F3
+PRODUCT_NAME := omni_MiKidsWatch_F3
 PRODUCT_BRAND := Xiaoxun
 PRODUCT_MODEL := MiKidsWatch_F3
 PRODUCT_MANUFACTURER := Xiaoxun
