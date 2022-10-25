@@ -38,3 +38,11 @@ jobs:
           croot
           lunch omni_MiKidsWatch_F3-eng
           mka -j$(nproc --all) recoveryimage
+      - name: Package image
+        run: |
+          export version=$(cat twrp/bootable/recovery/variables.h | grep "define TW_MAIN_VERSION_STR" | cut -d '"' -f2)
+          cp twrp/out/target/product/MiKidsWatch_F3/recovery.img twrp-${version}_0-MiKidsWatch_F3.img
+      - uses: actions/upload-artifact@v3
+        with:
+          name: TWRP Image
+          path: 'twrp-*.img'
