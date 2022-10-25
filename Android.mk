@@ -14,4 +14,5 @@
 # limitations under the License.
 #
 
-include $(all-subdir-makefiles)
+LOCAL_PATH := device/Xiaoxun/MiKidsWatch_F3
+include $(call all-makefiles-under,$(LOCAL_PATH))
