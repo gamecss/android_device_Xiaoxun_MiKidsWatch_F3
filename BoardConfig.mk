@@ -40,7 +40,7 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
 # allow building ramdisk(s) with lzma
-#LZMA_RAMDISK_TARGETS += recovery
+LZMA_RAMDISK_TARGETS += recovery
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
@@ -50,20 +50,16 @@ MTK_HARDWARE := true
 # Partitions
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 #BOARD_USES_FULL_RECOVERY_IMAGE := true
-BOARD_FLASH_BLOCK_SIZE := 0
-TARGET_KMODULES := true
+BOARD_FLASH_BLOCK_SIZE := 131072 # (BOARD_KERNEL_PAGESIZE * 64)
 
 # Recovery
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 
-# Assert
-TARGET_OTA_ASSERT_DEVICE := MiKidsWatch_F3
-
 # Workaround for error copying vendor files to recovery ramdisk
-BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
-TARGET_COPY_OUT_VENDOR := vendor
+#BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
+#TARGET_COPY_OUT_VENDOR := vendor
 
 #Recovery FSTAB
 TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/recovery/root/etc/recovery.fstab
@@ -76,15 +72,13 @@ TW_THEME := watch_mdpi
 LOCAL_RESOLUTION := 320x360
 TARGET_SCREEN_HEIGHT := 360
 TARGET_SCREEN_WIDTH := 320
-#TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
-RECOVERY_GRAPHICS_USE_LINELENGTH := true
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
+#RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc/gadget/lun%d/file
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 100
-TW_INCLUDE_FB2PNG := true
-TW_USE_MODEL_HARDWARE_ID_FOR_LOCAL_ID := true
-TW_NO_CPU_TEMP := true
+#TW_NO_CPU_TEMP := true
 TW_REBOOT_RECOVERY := true
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
@@ -92,8 +86,9 @@ TW_HAVE_SELINUX := true
 TW_DEFAULT_LANGUAGE := en
 TW_HAS_MTP := true
 TW_MTP_DEVICE := /dev/mtp_usb
-#TW_INCLUDE_BASH := true
-#TW_INCLUDE_TZDATA := true
-#TW_INCLUDE_NANO := true
-#TW_INCLUDE_CRYPTO := true
+TW_EXCLUDE_BASH := true
+TW_EXCLUDE_TZDATA := true
+TW_EXCLUDE_NANO := true
+TW_EXCLUDE_SUPERSU := true
+TW_EXCLUDE_FB2PNG := true
 TW_USE_TOOLBOX := true
