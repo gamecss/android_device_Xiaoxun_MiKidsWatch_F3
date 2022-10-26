@@ -35,7 +35,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 		persist.sys.usb.config=mtp
 
 # Prebuilt kernel
-PRODUCT_COPY_FILES += device/Xiaoxun/MiKidsWatch_F3/prebuilt/kernel:kernel
+PRODUCT_COPY_FILES += device/Xiaoxun/MiKidsWatch_F3/prebuilt/zImage-dtb:kernel
 
 # Ramdisk
 PRODUCT_PACKAGES += \
