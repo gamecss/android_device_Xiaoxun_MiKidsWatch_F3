@@ -34,9 +34,6 @@ PRODUCT_MANUFACTURER := Xiaoxun
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 		persist.sys.usb.config=mtp
 
-# Prebuilt kernel
-PRODUCT_COPY_FILES += device/Xiaoxun/MiKidsWatch_F3/prebuilt/zImage-dtb:kernel
-
 # Ramdisk
 PRODUCT_PACKAGES += \
     $(DEVICE_PATH)/recovery/root/init.recovery.mt6739.rc:root/init.recovery.mt6739.rc \
