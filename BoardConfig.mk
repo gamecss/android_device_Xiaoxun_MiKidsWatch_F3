@@ -30,6 +30,7 @@ TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := MT6735
 
 # MiKidsWatch_F3 kernel
+TARGET_IS_64_BIT := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/Xiaoxun/MiKidsWatch_F3
 TARGET_KERNEL_CONFIG := MiKidsWatch_F3_defconfig
