@@ -12,17 +12,22 @@ jobs:
     steps:
       - name: Configure
         run: |
+          echo ====== Setup repo ======
           curl https://storage.googleapis.com/git-repo-downloads/repo | sudo tee /usr/bin/repo > /dev/null
           sudo ln -sf /usr/bin/python3 /usr/bin/python
           sudo chmod +x /usr/bin/repo
+          echo ====== Install depens ======
           sudo apt install -yq bc bison build-essential ccache curl flex g++-multilib gcc-multilib git gnupg gperf imagemagick lib32ncurses5-dev lib32readline-dev lib32z1-dev liblz4-tool libncurses5 libncurses5-dev libsdl1.2-dev libssl-dev libxml2 libxml2-utils lzop pngcrush rsync schedtool squashfs-tools xsltproc zip zlib1g-dev libwxgtk3.0-dev python3
+          echo ====== Set git user ======
           git config --global user.email "1156393759@qq.com"
           git config --global user.name "gamecss@bot"
       - name: Get source
         run: |
+          echo ====== Initial source ======
           mkdir $GITHUB_WORKSPACE/twrp
           cd $GITHUB_WORKSPACE/twrp
           repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git -b twrp-7.1
+          echo ====== Sync source ======
           repo sync -c -f --no-tags --no-clone-bundle -j16
       - name: Setup devicetree
         uses: actions/checkout@v3
@@ -30,13 +35,15 @@ jobs:
           path: 'twrp/device/Xiaoxun/MiKidsWatch_F3'   
       - name: Build
         run: |
+          echo ====== Setup Python2 ======
           sudo rm -f /usr/bin/python
-          sudo apt install -yq python-minimal
           sudo ln -sf /usr/bin/python2 /usr/bin/python
           cd $GITHUB_WORKSPACE/twrp
           source build/envsetup.sh
           croot
-          brunch omni_MiKidsWatch_F3-eng
+          echo ====== Setup device env ======
+          lunch omni_MiKidsWatch_F3-eng
+          echo ====== Build TWRP ======
           mka -j$(nproc --all) recoveryimage
       - name: Package image
         run: |
