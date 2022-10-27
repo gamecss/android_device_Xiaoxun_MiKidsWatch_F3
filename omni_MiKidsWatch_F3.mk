@@ -23,6 +23,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
+# Setup x64 arch
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
 # Device
 PRODUCT_DEVICE := MiKidsWatch_F3
 PRODUCT_NAME := omni_MiKidsWatch_F3
