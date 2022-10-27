@@ -1,0 +1,8 @@
+[
+  {
+    "remote":"github",
+    "repository": "gamecss/android_kernel_Xiaoxun_MiKidsWatch_F3",
+    "target_path": "kernel/Xiaoxun/MiKidsWatch_F3",
+    "revision":"android-10-clean"
+  }
+]
