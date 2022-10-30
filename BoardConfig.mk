@@ -50,7 +50,7 @@ BOARD_KERNEL_CMDLINE := bootopt=64S3,32S1,32S1 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset $(BOARD_TAGS_OFFSET)
 
 # allow building ramdisk(s) with lzma
-LZMA_RAMDISK_TARGETS += recovery
+#LZMA_RAMDISK_TARGETS += recovery
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
