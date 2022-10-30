@@ -1,4 +1,4 @@
-name: Compile TWRP
+name: Compile TWRP [ Kernel working ]
 on:
   push:
     branches: [ 'kernel_test' ]
