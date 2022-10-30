@@ -17,10 +17,9 @@
 #device_path
 DEVICE_PATH := device/Xiaoxun/MiKidsWatch_F3
 
-# Inherit from those products. Most specific first.
+# Inherit something
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-
-# Inherit from our custom product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device
