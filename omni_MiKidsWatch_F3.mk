@@ -31,7 +31,7 @@ PRODUCT_MANUFACTURER := Xiaoxun
 
 # Enable MTP
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-		persist.sys.usb.config=mtp
+		persist.sys.usb.config=mtp,adb
 
 # Prebuilt kernel
 PRODUCT_COPY_FILES += device/Xiaoxun/MiKidsWatch_F3/prebuilt/zImage-dtb:kernel

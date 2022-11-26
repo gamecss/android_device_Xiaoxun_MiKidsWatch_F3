@@ -48,6 +48,7 @@ BOARD_MKBOOTIMG_ARGS := --kernel_offset $(BOARD_KERNEL_OFFSET) --ramdisk_offset 
 
 # allow building ramdisk(s) with lzma
 LZMA_RAMDISK_TARGETS += recovery
+LZMA_COMPRESSION := -9
 
 # MTK Hardware
 BOARD_HAS_MTK_HARDWARE := true
@@ -82,7 +83,6 @@ TARGET_SCREEN_WIDTH := 320
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc/gadget/lun%d/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 100
 TW_REBOOT_RECOVERY := true
