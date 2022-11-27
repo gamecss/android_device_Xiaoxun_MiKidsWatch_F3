@@ -19,7 +19,6 @@ DEVICE_PATH := device/Xiaoxun/MiKidsWatch_F3
 
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 
 # Device
@@ -31,7 +30,7 @@ PRODUCT_MANUFACTURER := Xiaoxun
 
 # Enable MTP
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-		persist.sys.usb.config=mtp
+		persist.sys.usb.config=mtp,adb
 
 # Ramdisk
 PRODUCT_PACKAGES += \

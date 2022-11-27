@@ -17,26 +17,18 @@
 LOCAL_PATH := device/Xiaoxun/MiKidsWatch_F3
 
 # Architecture
-TARGET_BOARD_SUFFIX := _64
-TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
-TARGET_CPU_ABI := arm64-v8a
-TARGET_CPU_ABI2 :=
+TARGET_ARCH := arm
+TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_ABI := armeabi-v7a
+TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_VARIANT := cortex-a53
-TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv7-a-neon
-TARGET_2ND_CPU_ABI := armeabi-v7a
-TARGET_2ND_CPU_ABI2 := armeabi
-TARGET_2ND_CPU_VARIANT := cortex-a53
 BOARD_HAS_NO_SELECT_BUTTON := true
-TARGET_USES_64_BIT_BINDER := true
 
 TARGET_BOARD_PLATFORM := mt6739
 TARGET_NO_BOOTLOADER := true
 TARGET_BOOTLOADER_BOARD_NAME := MT6735
 
 # MiKidsWatch_F3 kernel
-TARGET_IS_64_BIT := true
 BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_SOURCE := kernel/Xiaoxun/MiKidsWatch_F3
 TARGET_KERNEL_CONFIG := MiKidsWatch_F3_defconfig
@@ -85,7 +77,6 @@ TARGET_SCREEN_WIDTH := 320
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBA_8888"
 TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc/gadget/lun%d/file
-TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 TW_MAX_BRIGHTNESS := 255
 TW_DEFAULT_BRIGHTNESS := 100
 TW_REBOOT_RECOVERY := true
@@ -106,3 +97,4 @@ TW_INCLUDE_CRYPTO := true
 TW_INCLUDE_NANO := true
 TW_INCLUDE_SUPERSU := true
 TW_USE_TOOLBOX := true
+TW_EXCLUDE_DEFAULT_USB_INIT := true
